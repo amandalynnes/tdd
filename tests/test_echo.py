@@ -128,15 +128,15 @@ class TestEcho(unittest.TestCase):
     #
     # Students: add a flake8 test here.
     # You may borrow some test code from previous assignments!
-    #
+    # borrowed code from copyspecial tests
     def test_flake8(self):
-        # your code here
-        self.fail()  # replace me
-
+        """Checks PEP8/FLAKE8 compliance"""
+        result = subprocess.run(['flake8',self.module.__file__])
+        self.assertEqual(result.returncode, 0)
     #
     # Students: add an __author__ test here.
     # You may borrow some test code from previous assignments!
-    #
+    # borrowed code from copyspecial tests
     def test_author(self):
         """Checks for author string"""
         self.assertIsNotNone(self.module.__author__)
