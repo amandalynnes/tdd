@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """An enhanced version of the 'echo' cmd line utility."""
 
-__author__ = "Amanda Simmons"
+__author__ = "Amanda Simmons, Alec Stephens "
 
 
 import sys
@@ -12,22 +12,29 @@ import argparse
 def create_parser():
     """Returns an instance of argparse.ArgumentParser"""
     parser = argparse.ArgumentParser()
-    parser.add_argument('-h', help='show this help message and exit')
-    parser.add_argument('--help', help='show this help message and exit')
-    parser.add_argument('-u', help='convert text to uppercase')
-    parser.add_argument('--upper', help='convert text to uppercase')
-    parser.add_argument('-l', help='convert text to lowercase')
-    parser.add_argument('--lower', help='convert text to lowercase')
-    parser.add_argument('-t', help='convert text to titlecase')
-    parser.add_argument('--title', help='convert text to titlecase')
+    parser.add_argument('-u', '--upper', help='convert text to uppercase')
+    parser.add_argument('-l', '--lower', help='convert text to lowercase')
+    parser.add_argument('-t', '--title', help='convert text to titlecase')
+    parser.add_argument('text', help='text to be manipulated')
 
-    return
+    return parser
 
 
 def main(args):
     """Implementation of echo"""
-
+    parser = create_parser()
     ns = parser.parse_args(args)
+    text = ns.text
+
+# create if statements for flag conditions
+    if ns.upper:
+        text = text.upper()
+    if ns.lower:
+        text = text.lower()
+    if ns.title:
+        text = text.title()
+
+    print(text)
     return
 
 
