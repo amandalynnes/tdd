@@ -6,17 +6,28 @@ __author__ = "Amanda Simmons"
 
 
 import sys
+import argparse
 
 
 def create_parser():
     """Returns an instance of argparse.ArgumentParser"""
-    # your code here
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-h', help='show this help message and exit')
+    parser.add_argument('--help', help='show this help message and exit')
+    parser.add_argument('-u', help='convert text to uppercase')
+    parser.add_argument('--upper', help='convert text to uppercase')
+    parser.add_argument('-l', help='convert text to lowercase')
+    parser.add_argument('--lower', help='convert text to lowercase')
+    parser.add_argument('-t', help='convert text to titlecase')
+    parser.add_argument('--title', help='convert text to titlecase')
+
     return
 
 
 def main(args):
     """Implementation of echo"""
-    # your code here
+
+    ns = parser.parse_args(args)
     return
 
 
