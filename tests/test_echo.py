@@ -7,7 +7,7 @@ Students MUST EDIT this module, to add more tests to run
 against the 'echo.py' program.
 """
 
-__author__ = "Amanda Simmons, Piero M, copyspecial tests"
+__author__ = "Amanda Simmons, Piero M, copyspecial tests, Peter M"
 
 import sys
 import importlib
@@ -71,12 +71,10 @@ class TestEcho(unittest.TestCase):
     def test_parser_namespace(self):
         """Check if parser is returning an instance of parser object
         and namespace contains correct args"""
-        args = ["-ult", "HELLO WORLD"]
-        # output = run_capture(self.module.__file__, args)
-        # self.assertEqual(output[0], "hello world")
         parser = self.module.create_parser()
         # check type of parser and use in assert is instance
-        self.assertIsInstance(parser, )
+        parser_type = type(parser)
+        self.assertIsInstance(parser, parser_type)
 
     def test_echo(self):
         """Check if main() function prints anything at all"""
